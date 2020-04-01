@@ -1,0 +1,16 @@
+------------------Real Estate Management System-------------------
+
+This is a web application built on html, css and PHP, SQL.
+
+This application supports :
+  i.User registration and login.
+  ii.Searching properties based on location.
+  iii.Buying and Selling properties online.
+  iv.Admin login - where admin can view all the properties and transactions info.
+
+How to use this application:
+  i.Install xampp.
+  ii.Download the rems1 folder.
+  iii.Paste rems1 folder inside htdocs folder inside xampp directory.
+  iv.Open localhost from xampp. In the browser goto localhost/rems1/
+
