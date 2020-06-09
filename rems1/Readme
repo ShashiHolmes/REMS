@@ -12,5 +12,5 @@ How to use this application:
   i.Install xampp.
   ii.Download the rems1 folder.
   iii.Paste rems1 folder inside htdocs folder inside xampp directory.
-  iv.Create a database named crud on localhost and import the rems1.sql to it.
+  iv.Create a database named rems1 on localhost and import the rems1.sql to it.
   v.In the browser goto localhost/rems1/
