@@ -29,11 +29,11 @@
   font-family: "Roboto", sans-serif;
   text-transform: uppercase;
   outline: 0;
-  background: #4CAF50;
+  background: #00203FFF;
   width: 100%;
   border: 0;
   padding: 15px;
-  color: #FFFFFF;
+  color: #ADEFD1FF;
   font-size: 14px;
   -webkit-transition: all 0.3 ease;
   transition: all 0.3 ease;
@@ -48,7 +48,7 @@
   font-size: 12px;
 }
 .form .message a {
-  color: #4CAF50;
+  color: #00203FFF;
   text-decoration: none;
 }
 .form .register-form {
@@ -88,11 +88,11 @@
   color: #EF3B3A;
 }
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
+  background: #76b852; 
+  background: -webkit-linear-gradient(right, #ADEFD1FF, #ADEFD1FF);
+  background: -moz-linear-gradient(right, #ADEFD1FF, #ADEFD1FF);
+  background: -o-linear-gradient(right, #ADEFD1FF, #ADEFD1FF);
+  background: linear-gradient(to left, #ADEFD1FF, #ADEFD1FF);
   font-family: "Roboto", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;      

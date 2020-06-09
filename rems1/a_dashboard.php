@@ -48,40 +48,40 @@
      margin: 0;
      padding: 0;
      overflow: hidden;
-     background-color: lightblue;
+     background-color: #00203FFF;
    }
    li{
-     float: right;
+     float: left;
    }
    li a{
      display: block;
-     color: white;
+     color: #ffffff;
      text-align: center;
      padding: 14px 16px;
      text-decoration: none;
-
    }
    li a:hover{
-     background-color: #111;
+     background-color: #379683;
    }
    li button{
-     
-     color: white;
+     color: #ffffff;
      text-align: center;
      padding: 14px 16px;
      text-decoration: none;
-     background-color: lightblue;
+     background-color: #00203FFF;
    }
    li button:hover{
-     background-color: #111;
+     background-color: #379683;
    }
    table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
   width: 100%;
+  box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
 th{
-  background-color: #4CAF50;
+  background-color: #00203FFF;
+  color: white;
   text-align: left;
   padding: 8px;
   border: 2px solid #dddddd;
@@ -92,25 +92,27 @@ td {
   padding: 8px;
 }
 tr:nth-child(odd) {
-  background-color: #ddfada;
+  background-color: #f1f1f1;
+}
+tr:nth-child(even) {
+  background-color: #ffffff;
 }
 form{
     width: 100%;
    }
    form div{
-    width: 50%;
-    padding-top: 20px;
+    width: 80%;
+    padding-top: 40px;
     margin: 0 auto;
    }
   </style>
 </head>
-<body>
+<body style="background-color: #ADEFD1FF">
   <form method="POST" action="a_dashboard.php" enctype="multipart/form-data">
 
-    <!-- logged in user information -->
     <?php  if (isset($_SESSION['admin_email'])) : ?>
 	  <ul>
-      <li> <a href="admin.php?logout='1'">logout</a></li>
+      <li style="float: right;"> <a href="admin.php?logout='1'">Logout</a></li>
       <li> <button type="submit" name="users">View Users</li>
       <li> <button type="submit" name="props">View Properties</button></li>
       <li> <button type="submit" name="trans">View Transactions</button></li>

@@ -1,62 +1,52 @@
 <?php
 session_start();
 
-// initializing variables
 $username = "";
 $email    = "";
 $contact  = "";
 $address  = "";
 $errors = array(); 
 
-// connect to the database
 $db = mysqli_connect('localhost', 'root', '', 'rems1');
 
-// REGISTER USER
 if (isset($_POST['reg_user'])) {
-  // receive all input values from the form
   $username = mysqli_real_escape_string($db, $_POST['username']);
   $email = mysqli_real_escape_string($db, $_POST['email']);
   $contact = mysqli_real_escape_string($db, $_POST['contact']);
   $address = mysqli_real_escape_string($db, $_POST['address']);
   $password_1 = mysqli_real_escape_string($db, $_POST['password_1']);
   $password_2 = mysqli_real_escape_string($db, $_POST['password_2']);
+  $question = mysqli_real_escape_string($db, $_POST['question']);
+  $answer = mysqli_real_escape_string($db, $_POST['answer']);
 
-  // form validation: ensure that the form is correctly filled ...
-  // by adding (array_push()) corresponding error unto $errors array
   if (empty($username)) { array_push($errors, "Username is required"); }
   if (empty($email)) { array_push($errors, "Email is required"); }
   if (empty($password_1)) { array_push($errors, "Password is required"); }
+  if (empty($question)) { array_push($errors, "Question is required"); }
   if ($password_1 != $password_2) {
 	array_push($errors, "The two passwords do not match");
   }
 
-  // first check the database to make sure 
-  // a user does not already exist with the same username and/or email
   $user_check_query = "SELECT * FROM users WHERE username='$username' OR email='$email' LIMIT 1";
   $result = mysqli_query($db, $user_check_query);
   $user = mysqli_fetch_assoc($result);
   
-  if ($user) { // if user exists
-    // if ($user['username'] === $username) {
-    //   array_push($errors, "Username already exists");
-    // }
-    
+  if ($user) {    
     if ($user['email'] === $email) {
       array_push($errors, "email already exists");
     }
   }
 
-  // Finally, register user if there are no errors in the form
   if (count($errors) == 0) {
-  	$password = md5($password_1);//encrypt the password before saving in the database
+  	$password = md5($password_1);
 
-  	$query = "INSERT INTO users (username, email, contact , address , password) 
-  			  VALUES('$username', '$email', '$contact', '$address', '$password')";
+  	$query = "INSERT INTO users (username, email, contact , address , password, question, answer) 
+  			  VALUES('$username', '$email', '$contact', '$address', '$password', '$question', '$answer')";
   	mysqli_query($db, $query);
   	$_SESSION['username'] = $username;
     $_SESSION['email'] = $email;
   	$_SESSION['success'] = "You are now logged in";
-  	header('location: index.php');
+  	header('location: home.php');
   }
 }
 
@@ -79,7 +69,7 @@ if (isset($_POST['login_user'])) {
   	  $_SESSION['username'] = $username;
       $_SESSION['email'] = $email;
   	  $_SESSION['success'] = "You are now logged in";
-  	  header('location: index.php');
+  	  header('location: home.php');
   	}else {
   		array_push($errors, "Wrong username/password combination");
   	}
@@ -106,6 +96,38 @@ if (isset($_POST['admin_user'])) {
       header('location: a_dashboard.php');
     }else {
       array_push($errors, "Wrong username/password combination");
+    }
+  }
+}
+
+if (isset($_POST['forgot_user'])) {
+  $email = mysqli_real_escape_string($db, $_POST['email']);
+  $question = mysqli_real_escape_string($db, $_POST['question']);
+  $answer = mysqli_real_escape_string($db, $_POST['answer']);
+  $password = mysqli_real_escape_string($db, $_POST['password']);
+  $password1 = mysqli_real_escape_string($db, $_POST['password1']);
+
+  if (empty($email)) {
+    array_push($errors, "Email is required");
+  }
+  if (empty($password)) {
+    array_push($errors, "Password is required");
+  }
+  if ($password != $password1) {
+  array_push($errors, "The two passwords do not match");
+  }
+
+  if (count($errors) == 0) {
+    $query = "SELECT * FROM users WHERE question='$question' AND answer='$answer' AND email='$email'";
+    $results = mysqli_query($db, $query);
+    if (mysqli_num_rows($results) == 1) {
+      $password=md5($password);
+      $q1= "UPDATE users set password='$password' where email='$email'";
+      mysqli_query($db, $q1);
+      $_SESSION['success'] = "Password reset successful";
+      header('location: login.php');
+    }else {
+      array_push($errors, "Wrong details");
     }
   }
 }

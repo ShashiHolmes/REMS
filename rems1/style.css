@@ -96,7 +96,8 @@ form, .content {
      margin: 0;
      padding: 0;
      overflow: hidden;
-     background-color: lightblue;
+     background-color: #00203FFF;
+     color: ffffff;
    }
    li{
      float: right;
@@ -111,5 +112,4 @@ form, .content {
    }
    li a:hover{
      background-color: #111;
-
    }

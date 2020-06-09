@@ -39,25 +39,19 @@
 <head>
 	<title>Success</title>
 	<style>
-table {
-  font-family: arial, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
-ul{
+    body{
+      background-color: #ADEFD1FF;
+    }
+   ul{
      list-style-type: none;
      margin: 0;
      padding: 0;
      overflow: hidden;
-     background-color: rgb(23, 158, 6);
+     background-color: #00203FFF;
+     color: ffffff;
    }
-td, th {
-  border: 1px solid #dddddd;
-  text-align: left;
-  padding: 8px;
-}
-li{
-     float: right;
+   li{
+     float: left;
    }
    li a{
      display: block;
@@ -69,35 +63,65 @@ li{
    }
    li a:hover{
      background-color: #111;
-
    }
-tr:nth-child(even) {
-  background-color: rgb(170, 238, 172);
-}
-</style>
+   table {
+      font-family: arial, sans-serif;
+      border-collapse: collapse;
+      width: 100%;
+      box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    }
+    th{
+      text-align: left;
+      padding: 8px;
+      border: 2px solid #dddddd;
+    }
+    td {
+      border: 2px solid #dddddd;
+      text-align: left;
+      padding: 8px;
+    }
+    tr:nth-child(odd) {
+      background-color: #f1f1f1;
+    }
+    tr:nth-child(even) {
+      background-color: #ffffff;
+    }
+
+div{
+    width: 80%;
+    padding-top: 20px;
+    margin: 0 auto;
+   }
+   h1 {
+    text-align: center;
+    color: #00203FFF;
+   }
+  </style>
 </head>
 <body>
 	  <ul>
-	  		<h1 align="center">Transaction Succesful</h1>
-      		<li> <a href="index.php">Home</a></li>
+      		<li> <a href="home.php">Home</a></li>
 	  </ul>
-<table>
-  <tr>
-  	<td>Client Name</td>
-    <th><?php echo "$username"; ?></th>
-  </tr>
-  <tr>
-    <td>Paid to</td>
-    <th><?php echo "$o_username"; ?></th>
-  </tr>
-  <tr>
-    <td>Amount</td>
-    <th><?php echo "Rs. $price"; ?></th>
-  </tr>
-  <tr>
-    <td>Transaction Reference No.</td>
-    <th><?php echo "$trans"; ?></th>
-  </tr>
-</table>
+    <h1>Transaction Successful</h1>
+    <div>
+        <table>
+          <tr>
+          	<td>Client Name</td>
+            <th><?php echo "$username"; ?></th>
+          </tr>
+          <tr>
+            <td>Paid to</td>
+            <th><?php echo "$o_username"; ?></th>
+          </tr>
+          <tr>
+            <td>Amount</td>
+            <th><?php echo "Rs. $price"; ?></th>
+          </tr>
+          <tr>
+            <td>Transaction Reference No.</td>
+            <th><?php echo "$trans"; ?></th>
+          </tr>
+        </table>
+    </div>
 </body>
 </html>

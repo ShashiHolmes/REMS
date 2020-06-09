@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 27, 2019 at 05:12 PM
+-- Generation Time: Nov 01, 2019 at 02:56 PM
 -- Server version: 10.4.8-MariaDB
 -- PHP Version: 7.3.10
 
@@ -56,16 +56,6 @@ CREATE TABLE `booking1` (
   `b_email` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `booking1`
---
-
-INSERT INTO `booking1` (`bid`, `pid`, `b_email`) VALUES
-(6, 137, 'email1@gmail.com'),
-(7, 136, 'email1@gmail.com'),
-(8, 140, 'email@gmail.com'),
-(9, 139, 'email@gmail.com');
-
 -- --------------------------------------------------------
 
 --
@@ -77,16 +67,6 @@ CREATE TABLE `booking2` (
   `o_email` varchar(100) NOT NULL,
   `id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `booking2`
---
-
-INSERT INTO `booking2` (`pid`, `o_email`, `id`) VALUES
-(137, 'email@gmail.com', 6),
-(136, 'email@gmail.com', 7),
-(140, 'email1@gmail.com', 8),
-(139, 'email1@gmail.com', 9);
 
 -- --------------------------------------------------------
 
@@ -100,14 +80,6 @@ CREATE TABLE `payment` (
   `trans_ref` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `payment`
---
-
-INSERT INTO `payment` (`payment_id`, `bid`, `trans_ref`) VALUES
-(1, 9, '0'),
-(11, 9, 'e00da03b685a0dd18fb6a08af0923de0');
-
 -- --------------------------------------------------------
 
 --
@@ -118,18 +90,6 @@ CREATE TABLE `property1` (
   `pid` int(11) NOT NULL,
   `email` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `property1`
---
-
-INSERT INTO `property1` (`pid`, `email`) VALUES
-(139, 'email1@gmail.com'),
-(140, 'email1@gmail.com'),
-(136, 'email@gmail.com'),
-(137, 'email@gmail.com'),
-(138, 'email@gmail.com'),
-(141, 'email@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -148,18 +108,6 @@ CREATE TABLE `property2` (
   `status` varchar(100) NOT NULL DEFAULT 'unsold'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `property2`
---
-
-INSERT INTO `property2` (`pid`, `pname`, `location`, `price`, `description`, `image`, `key_code`, `status`) VALUES
-(136, 'prop1', 11111, 1111111, 'desc1', 'images (1).jpg', '698d51a19d8a121ce581499d7b701668', 'sold'),
-(137, 'prop2', 2222, 222222, 'desc2', 'images.jpg', 'bcbe3365e6ac95ea2c0343a2395834dd', 'sold'),
-(138, 'prop3', 333, 333333, 'desc3', 'images (2).jpg', '310dcbbf4cce62f762a2aaa148d556bd', 'unsold'),
-(139, 'dgdgdfg', 333, 1, 'dfdsfdf', 'download.jpg', '202cb962ac59075b964b07152d234b70', 'sold'),
-(140, 'prop2', 111, 2222, 'desc2', 'images (2).jpg', '202cb962ac59075b964b07152d234b70', 'sold'),
-(141, 'iudcusdifgiu', 25345, 5, 'hdgfuydsgfyu', 'download (1).jpg', '03afdbd66e7929b125f8597834fa83a4', 'unsold');
-
 -- --------------------------------------------------------
 
 --
@@ -171,16 +119,11 @@ CREATE TABLE `users` (
   `email` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `contact` varchar(10) NOT NULL,
-  `address` varchar(100) NOT NULL
+  `address` varchar(100) NOT NULL,
+  `question` varchar(255) NOT NULL,
+  `answer` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`username`, `email`, `password`, `contact`, `address`) VALUES
-('sanath', 'email1@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1234567890', 'email@gmail.com'),
-('shashi', 'email@gmail.com', 'e10adc3949ba59abbe56e057f20f883e', '1234567890', 'email@gmail.com');
 
 --
 -- Indexes for dumped tables
@@ -243,31 +186,31 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `booking1`
 --
 ALTER TABLE `booking1`
-  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `bid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `booking2`
 --
 ALTER TABLE `booking2`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `payment`
 --
 ALTER TABLE `payment`
-  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `payment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `property1`
 --
 ALTER TABLE `property1`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- AUTO_INCREMENT for table `property2`
 --
 ALTER TABLE `property2`
-  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=142;
+  MODIFY `pid` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=168;
 
 --
 -- Constraints for dumped tables

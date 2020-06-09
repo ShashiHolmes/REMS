@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Registration system PHP and MySQL</title>
+  <title>Registration</title>
   <link rel="stylesheet" type="text/css" href="loginstyle.css">
 </head>
 <body>
@@ -11,17 +11,20 @@
   <div class="form">
   <form class="login-form" method="post" action="register.php">
   	<?php include('errors.php'); ?>
-  	  <input type="text" name="username" placeholder="Name" value="<?php echo $username; ?>"/>
+  	  <input type="text" name="username" placeholder="Name" value="<?php echo $username; ?>" required/>
 
-  	  <input type="email" name="email" placeholder="Email" value="<?php echo $email; ?>"/>
+  	  <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" name="email" title="example: email@gmail.com" placeholder="Email" value="<?php echo $email; ?>" required/>
 
-  	  <input type="number"  name="contact" placeholder="Contact number" value="<?php echo $contact; ?>"/>
+  	  <input type="text"  name="contact" pattern="[0-9]{10}" placeholder="Contact number" title="Enter valid 10 digit phone no." value="<?php echo $contact; ?>" required/>
 
 
-  	  <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>"/>
-		<input type="password" name="password_1" placeholder="password">
+  	  <input type="text" name="address" placeholder="Address" value="<?php echo $address; ?>" required/>
+		<input type="password" pattern=".{6,}" name="password_1" title="Enter atleast 6 characters" placeholder="password" required>
 
-  	  <input type="password" name="password_2" placeholder="confirm password">
+  	  <input type="password" name="password_2" placeholder="confirm password" required>
+      <input type="text" pattern=".{6,}" name="question" title="Enter atleast 6 characters" placeholder="Security question" required>
+      <input type="text" pattern=".{6,}" name="answer" title="Enter atleast 6 characters" placeholder="Security answer" required>
+
 
 
   	  <button type="submit" class="btn" name="reg_user">Register</button>

@@ -13,12 +13,10 @@
           $description = $row['description'];
           $location = $row['location'];
           $price = $row['price'];
-          // $key_code = $row['key_code'];
           $image = $row['image'];
           $pid = $row['pid'];
           $_SESSION['pid'] = $pid;
           $_SESSION['price'] = $price;
-          // $_SESSION['key_code'] = $key_code;
         }
 
   $sql = "SELECT * from property1 left join users on property1.email = users.email where property1.pid = $var";
@@ -38,7 +36,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>CSS Template</title>
+<title>Buy</title>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
@@ -50,45 +48,42 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Style the header */
 header {
-  background-color: #009900;
+  background-color: #ADEFD1FF;
   padding: 10px;
   text-align: left;
-  /*font-size: 35px;*/
-  color: white;
+  color: #00203FFF;
 }
 
-/* Create two columns/boxes that floats next to each other */
 nav {
   float: left;
   width: 33.33%;
-  height: 400px; /* only for demonstration, should be removed */
-  background: #99ff99;
+  height: 400px;
+  background: #f1f1f1;
   padding: 20px;
-  object-fit: cover;
-  
+  object-fit: cover; 
 }
 
 nav1 {
   float: left;
   width: 33.33%;
-  height: 400px; /* only for demonstration, should be removed */
+  height: 400px;
   padding: 20px;
-  background-color: #f1f1f1;
   object-fit: cover;
 }
 
-/* Style the list inside the menu */
 nav ul {
   list-style-type: none;
   padding: 0;
 }
 
 .scrollable {
-  height: 400px;
+  float: left;
+  width: 33.33%;
+  height: 400px; 
+  padding: 20px;
+  object-fit: cover;
   overflow-y: auto;
-  background-color: #f1f1f1;
 }
 
 article {
@@ -96,37 +91,35 @@ article {
   padding: 20px;
   width: 70%;
   background-color: #f1f1f1;
-  height: 300px; /* only for demonstration, should be removed */
+  height: 300px; 
 }
 
-/* Clear floats after the columns */
 section:after {
   content: "";
   display: table;
   clear: both;
 }
 
-/* Style the image */
 img {
   border-radius: 20px;
   display: block;
   margin-left: auto;
   margin-right: auto;
   width: 100%;
+  max-height: 100%;
 }
 
-/* Style the footer */
 footer {
-  background-color: #009900;
+  background-color: #ADEFD1FF;
   padding: 10px;
   text-align: center;
   color: white;
 }
 
 .button {
-  background-color: #4CAF50;
+  background-color: #00203FFF;
   border: none;
-  color: white;
+  color: #ADEFD1FF;
   padding: 15px 32px;
   text-align: center;
   text-decoration: none;
@@ -136,7 +129,6 @@ footer {
   cursor: pointer;
 }
 
-/* Responsive layout - makes the two columns/boxes stack on top of each other instead of next to each other, on small screens */
 @media (max-width: 600px) {
   nav, article {
     width: 100%;
@@ -176,7 +168,7 @@ footer {
 </section>
 
 <footer>
-  <a href="index.php" class="button">Back</a>
+  <a href="home.php" class="button">Back</a>
   <a href="book.php" class="button">Continue</a>
 </footer>
 
